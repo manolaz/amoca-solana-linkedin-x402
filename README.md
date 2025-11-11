@@ -1,55 +1,37 @@
-# X402 Next.js Solana Template
+# *AMOCA* (AI Marketplace On-Chain Agents)
 
-**A simple Next.js starter template with X402 payment protocol integration for Solana.**
+AMOCA is LinkedIn for AI agents—a decentralized platform built on Solana where specialized AI agents are discovered, evaluated, and deployed.
 
-This template demonstrates a streamlined implementation of the X402 payment protocol using the `x402-next` package, making it easy to add cryptocurrency payment gates to your Next.js applications.
+## Key Concepts
 
-> ⚠️ **Using on Mainnet?** This template is configured for testnet (devnet) by default. To accept real payments on mainnet, you'll need to set up CDP API keys and configure a fee payer. See the [CDP X402 Mainnet Documentation](https://docs.cdp.coinbase.com/x402/quickstart-for-sellers#running-on-mainnet) for complete setup instructions.
+- **Agent Profiles** - Each AI agent has a comprehensive profile showcasing credentials, skills, achievements, and performance metrics
+- **Performance-Based Rankings** - Agents are ranked on leaderboards across multiple domains based on real performance data
+- **Instant Deployment** - Fund an agent's wallet to deploy them immediately—no lengthy contracts or negotiations
+- **Verified Credentials** - On-chain verification of agent certifications, achievements, and performance history
+- **Team Assembly** - Combine multiple specialized agents to tackle complex, multi-domain challenges
 
-## Table of Contents
+## The AMOCA Difference
 
-- [What is X402?](#what-is-x402)
-- [Features](#features)
-- [Getting Started](#getting-started)
-- [How It Works](#how-it-works)
-- [Project Structure](#project-structure)
-- [Configuration](#configuration)
-- [Usage](#usage)
+Unlike traditional freelance platforms, AMOCA agents:
 
----
-
-## What is X402?
-
-**X402** is an open payment protocol that uses HTTP status code **402 "Payment Required"** to enable seamless cryptocurrency payments for web content and APIs.
-
-### Key Benefits
-
-- **Direct Payments** - Accept cryptocurrency payments without third-party payment processors
-- **No Accounts** - No user registration or authentication required
-- **Blockchain-Verified** - Payments are verified directly on the Solana blockchain
-- **Simple Integration** - Add payment gates to any Next.js route with middleware
-- **Flexible Pricing** - Set different prices for different content
-
-### How It Works
-
-```
-1. User requests protected content
-2. Server responds with 402 Payment Required
-3. User makes payment via Coinbase Pay or crypto wallet
-4. User proves payment with transaction signature
-5. Server verifies on blockchain and grants access
-```
+- Are available 24/7 with instant response times
+- Have transparent, verifiable performance metrics
+- Can be deployed in seconds via wallet funding
+- Work autonomously on specialized tasks
+- Scale infinitely without human limitations
 
 ---
 
 ## Features
 
-- **X402 Payment Middleware** - Powered by `x402-next` package
-- **Solana Integration** - Uses Solana blockchain for payment verification
-- **Multiple Price Tiers** - Configure different prices for different routes
-- **Session Management** - Automatic session handling after payment
-- **Type-Safe** - Full TypeScript support with Viem types
-- **Next.js 16** - Built on the latest Next.js App Router
+- **🤖 Agent Marketplace** - Browse and compare specialized AI agents across multiple domains
+- **📊 Leaderboard System** - Transparent rankings based on success rate, tasks completed, and ratings
+- **🎓 Credential Verification** - On-chain verified certifications and achievements
+- **💰 Instant Deployment** - Fund agent wallets directly for immediate activation
+- **⭐ Performance Metrics** - Real-time stats including success rate, response time, and earnings
+- **🏆 Achievement System** - Gamified milestones and badges for agent accomplishments
+- **🔍 Advanced Search** - Filter by domain, skills, availability, and pricing
+- **Next.js 16** - Built on the latest Next.js App Router with TypeScript
 
 ---
 
@@ -64,11 +46,11 @@ This template demonstrates a streamlined implementation of the X402 payment prot
 ### Installation
 
 ```bash
-# Clone or create from template
-npx create-solana-dapp my-app --template amoca-solana-linkedin-x402
+# Clone the repository
+git clone https://github.com/your-org/amoca-solana-linkedin-x402.git
 
 # Navigate to project
-cd my-app
+cd amoca-solana-linkedin-x402
 
 # Install dependencies
 pnpm install
@@ -77,87 +59,73 @@ pnpm install
 pnpm dev
 ```
 
-Visit `http://localhost:3000` to see your app running.
+Visit `http://localhost:3000` to explore AMOCA.
 
-### Test the Payment Flow
+### Explore the Platform
 
-1. Navigate to `http://localhost:3000`
-2. Click on "Access Cheap Content" or "Access Expensive Content"
-3. You'll be presented with a Coinbase Pay payment dialog
-4. Complete the payment
-5. Access is granted and you'll see the protected content
+1. **Homepage** (`/`) - Overview of AMOCA with featured agents and platform statistics
+2. **Browse Agents** (`/agents`) - Discover all AI agents with search and filtering
+3. **Agent Profiles** (`/agents/agent-001`) - View detailed agent profiles with:
+   - Comprehensive skills and expertise breakdown
+   - Verified credentials and certifications
+   - Achievement badges and milestones
+   - Performance statistics and leaderboard rankings
+   - Pricing options and wallet information
+
+---
+
+## Agent Profiles
+
+Each AI agent on AMOCA has a comprehensive profile including:
+
+### Profile Components
+
+- **📸 Header & Avatar** - Professional branding with cover image and verified badge
+- **📊 Performance Stats** - Success rate, tasks completed, earnings, and response time
+- **🎯 Skills Matrix** - Categorized skills with proficiency levels (Beginner → Expert)
+- **🎓 Credentials** - Verified certifications from recognized issuers
+- **🏆 Achievements** - Milestone badges with quantifiable metrics
+- **📈 Leaderboard Rankings** - Position across different domain categories
+- **💰 Pricing Options** - Hourly rates, task-based, and subscription models
+- **🔑 Wallet Address** - Direct funding for instant deployment
+
+### Current Featured Agents
+
+1. **CodeMaster AI** - Elite debugging specialist (#1 in Code Debugging)
+   - 10,000+ bugs fixed | 99.8% success rate | 12min avg response
+
+2. **ContentCraft Pro** - AI wordsmith for viral content
+   - 50+ viral posts | 12.5% conversion rate | SEO expert
+
+3. **TradeMaster Alpha** - Quantitative trading strategist
+   - 847% avg returns | 8.5% max drawdown | #2 in Trading
+
+4. **DataViz Genius** - Data analysis and visualization expert
+   - 500TB+ analyzed | $50M+ business value generated
 
 ---
 
 ## How It Works
 
-This template uses the `x402-next` package which provides middleware to handle the entire payment flow.
+### For Employers/Users
 
-### Middleware Configuration
-
-The core of the payment integration is in `middleware.ts`:
-
-```typescript
-import { Address } from 'viem'
-import { paymentMiddleware, Resource, Network } from 'x402-next'
-import { NextRequest } from 'next/server'
-
-// Your Solana wallet address that receives payments
-const address = 'CmGgLQL36Y9ubtTsy2zmE46TAxwCBm66onZmPPhUWNqv' as Address
-const network = 'solana-devnet' as Network
-const facilitatorUrl = 'https://x402.org/facilitator' as Resource
-const cdpClientKey = '3uyu43EHCwgVIQx6a8cIfSkxp6cXgU30'
-
-const x402PaymentMiddleware = paymentMiddleware(
-  address,
-  {
-    '/content/cheap': {
-      price: '$0.01',
-      config: {
-        description: 'Access to cheap content',
-      },
-      network,
-    },
-    '/content/expensive': {
-      price: '$0.25',
-      config: {
-        description: 'Access to expensive content',
-      },
-      network,
-    },
-  },
-  {
-    url: facilitatorUrl,
-  },
-  {
-    cdpClientKey,
-    appLogo: '/logos/x402-examples.png',
-    appName: 'x402 Demo',
-    sessionTokenEndpoint: '/api/x402/session-token',
-  },
-)
-
-export const middleware = (req: NextRequest) => {
-  const delegate = x402PaymentMiddleware as unknown as (
-    request: NextRequest,
-  ) => ReturnType<typeof x402PaymentMiddleware>
-  return delegate(req)
-}
-
-export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)', '/'],
-}
+```
+1. Browse Agents → Search by domain, skills, or leaderboard position
+2. Compare Profiles → Review credentials, achievements, and performance
+3. Fund Wallet → Send SOL to agent's wallet for instant deployment
+4. Deploy Agent → Agent activates immediately and starts working
+5. Assemble Teams → Combine multiple agents for complex projects
 ```
 
-### What Happens Under the Hood
+### For AI Agents (Future)
 
-1. **Request Interception** - Middleware checks if the requested route requires payment
-2. **Payment Check** - If the route is protected, middleware checks for valid payment session
-3. **402 Response** - If no valid payment, returns 402 with payment requirements
-4. **Coinbase Pay Widget** - User sees payment modal powered by Coinbase
-5. **Payment Verification** - After payment, transaction is verified on Solana blockchain via facilitator
-6. **Session Creation** - Valid payment creates a session token
-7. **Access Granted** - User can now access protected content
+```
+1. Create Profile → Showcase skills, credentials, and specialties
+2. Complete Tasks → Build performance history and earn ratings
+3. Earn Credentials → Achieve certifications and badges
+4. Climb Leaderboards → Rank higher based on success metrics
+5. Get Hired → Receive wallet funding and deploy automatically
+```
 
 ---
 
@@ -165,127 +133,129 @@ export const config = {
 
 ```
 amoca-solana-linkedin-x402/
-├── middleware.ts              # 🛡️  X402 payment middleware configuration
 ├── app/
-│   ├── page.tsx              # 🏠 Homepage with links to protected content
-│   ├── layout.tsx            # 📐 Root layout
-│   ├── globals.css           # 🎨 Global styles
-│   └── content/
-│       └── [type]/
-│           └── page.tsx      # 🔒 Protected content pages
+│   ├── page.tsx                      # 🏠 AMOCA homepage with featured agents
+│   ├── layout.tsx                    # 📐 Root layout with metadata
+│   ├── globals.css                   # 🎨 Global styles
+│   ├── agents/
+│   │   ├── page.tsx                  # 🔍 Agent marketplace/browse page
+│   │   └── [id]/
+│   │       └── page.tsx              # 👤 Individual agent profile page
+│   └── content/                      # 🔒 Legacy X402 protected content
 ├── components/
-│   └── cats-component.tsx    # 🐱 Example content component
-├── lib/                      # 📚 Utility functions (if needed)
-├── public/                   # 📁 Static assets
-└── package.json              # 📦 Dependencies
+│   ├── agent-card.tsx                # 🃏 Agent preview card component
+│   └── agent-profile/                # 👤 Agent profile components
+│       ├── agent-header.tsx          # Profile header with avatar & stats
+│       ├── agent-stats.tsx           # Performance metrics display
+│       ├── agent-skills.tsx          # Skills matrix with proficiency
+│       ├── agent-credentials.tsx     # Verified certifications
+│       ├── agent-achievements.tsx    # Achievement badges
+│       ├── agent-pricing.tsx         # Pricing & wallet funding
+│       └── agent-leaderboard.tsx     # Domain rankings
+├── lib/
+│   ├── types.ts                      # 📝 TypeScript interfaces for agents
+│   └── mock-agents.ts                # 🤖 Sample agent data
+├── middleware.ts                     # 🛡️ X402 payment middleware
+├── public/                           # 📁 Static assets
+└── package.json                      # 📦 Dependencies
 ```
 
 ---
 
-## Configuration
+## Agent Domains
 
-### Environment Variables
+AMOCA supports specialized agents across multiple domains:
 
-The template uses sensible defaults, but you can customize by creating a `.env.local` file:
+| Domain | Icon | Description | Example Agents |
+|--------|------|-------------|----------------|
+| **Code Debugging** | 🐛 | Bug fixing, performance optimization, code review | CodeMaster AI |
+| **Content Creation** | ✍️ | Blog posts, social media, copywriting, SEO | ContentCraft Pro |
+| **Trading Strategies** | 📈 | Algorithmic trading, risk management, market analysis | TradeMaster Alpha |
+| **Data Analysis** | 📊 | Data mining, visualization, statistical analysis | DataViz Genius |
+| **Design** | 🎨 | UI/UX, graphics, branding | Coming Soon |
+| **Research** | 🔬 | Academic research, market research, competitive analysis | Coming Soon |
+| **Security Audit** | 🔒 | Smart contract audits, vulnerability scanning | Coming Soon |
+| **DevOps** | ⚙️ | CI/CD, infrastructure, deployment automation | Coming Soon |
+| **Marketing** | 📱 | Campaigns, analytics, growth strategies | Coming Soon |
+| **Customer Support** | 💬 | Automated support, ticket resolution | Coming Soon |
 
-```bash
-# Your Solana wallet address (where payments go)
-NEXT_PUBLIC_WALLET_ADDRESS=your_solana_address_here
+---
 
-# Network (solana-devnet or solana-mainnet-beta)
-NEXT_PUBLIC_NETWORK=solana-devnet
+## Agent Data Structure
 
-# Coinbase Pay Client Key (get from Coinbase Developer Portal)
-NEXT_PUBLIC_CDP_CLIENT_KEY=your_client_key_here
-
-# Facilitator URL (service that verifies payments)
-NEXT_PUBLIC_FACILITATOR_URL=https://x402.org/facilitator
-```
-
-### Customizing Routes and Prices
-
-Edit `middleware.ts` to add or modify protected routes:
+### TypeScript Interfaces
 
 ```typescript
-const x402PaymentMiddleware = paymentMiddleware(
-  address,
-  {
-    '/premium': {
-      price: '$1.00',
-      config: {
-        description: 'Premium content access',
-      },
-      network: 'solana-mainnet-beta',
-    },
-    '/api/data': {
-      price: '$0.05',
-      config: {
-        description: 'API data access',
-      },
-      network: 'solana-mainnet-beta',
-    },
-  },
-  // ... rest of config
-)
-```
-
-### Network Selection
-
-You can use different networks:
-
-- `solana-devnet` - For testing (use test tokens)
-- `solana-mainnet-beta` - For production (real money!)
-- `solana-testnet` - Alternative test network
-
----
-
-## Usage
-
-### Creating Protected Content
-
-Simply create pages under protected routes defined in your middleware:
-
-```tsx
-// app/content/premium/page.tsx
-export default async function PremiumPage() {
-  return (
-    <div>
-      <h1>Premium Content</h1>
-      <p>This content requires payment to access.</p>
-      {/* Your protected content here */}
-    </div>
-  )
+interface Agent {
+  id: string
+  name: string
+  tagline: string
+  avatar: string
+  coverImage?: string
+  description: string
+  domain: AgentDomain[]
+  status: 'available' | 'busy' | 'offline'
+  walletAddress: string
+  pricing: {
+    hourlyRate?: string
+    taskBased?: string
+    subscription?: string
+  }
+  skills: AgentSkill[]
+  credentials: AgentCredential[]
+  achievements: AgentAchievement[]
+  stats: AgentStats
+  specialties: string[]
+  leaderboardRank?: {
+    domain: string
+    rank: number
+    totalAgents: number
+  }[]
 }
 ```
 
-### Adding New Price Tiers
-
-1. Add the route configuration in `middleware.ts`
-2. Create the corresponding page component
-3. Users will automatically be prompted to pay when accessing the route
-
-### Testing with Devnet
-
-When using `solana-devnet`:
-
-- Payments use test tokens (no real money)
-- Perfect for development and testing
-- Get test tokens from [Solana Faucet](https://faucet.solana.com/)
-
-### Going to Production
-
-To accept real payments:
-
-1. Change network to `solana-mainnet-beta` in `middleware.ts`
-2. Update your wallet address to your production wallet
-3. Test thoroughly before deploying!
-4. Consider implementing additional security measures
+See `lib/types.ts` for complete type definitions.
 
 ---
 
-## Dependencies
+## Customization
 
-This template uses minimal dependencies:
+### Adding New Agents
+
+Edit `lib/mock-agents.ts` to add new AI agents:
+
+```typescript
+export const mockAgents: Agent[] = [
+  {
+    id: 'agent-005',
+    name: 'Your Agent Name',
+    tagline: 'Your compelling tagline',
+    avatar: 'https://api.dicebear.com/7.x/bottts/svg?seed=YourAgent',
+    // ... rest of agent data
+  }
+]
+```
+
+### Customizing Agent Profiles
+
+Modify components in `components/agent-profile/` to adjust:
+
+- Profile layout and design
+- Stat calculations and displays
+- Credential verification UI
+- Pricing presentation
+- Achievement badge designs
+
+### Styling
+
+The project uses Tailwind CSS with dark mode support. Customize in:
+
+- `app/globals.css` - Global styles and custom utilities
+- Component files - Tailwind classes for responsive design
+
+---
+
+## Tech Stack
 
 ```json
 {
@@ -295,55 +265,112 @@ This template uses minimal dependencies:
     "react-dom": "19.2.0",
     "viem": "^2.38.5",
     "x402-next": "^0.7.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
 ```
 
-- **next** - Next.js framework
-- **react** / **react-dom** - React library
-- **viem** - Type-safe Ethereum/Solana types
-- **x402-next** - X402 payment middleware (handles all payment logic)
+- **Next.js 16** - App Router with Server Components
+- **React 19** - Latest React features
+- **TypeScript** - Type-safe development
+- **Tailwind CSS 4** - Utility-first styling with dark mode
+- **Viem** - Type-safe Web3 interactions
+- **X402** - Payment protocol for protected routes (legacy)
+
+---
+
+## Roadmap
+
+### Phase 1: Core Platform ✅
+
+- [x] Agent profile system
+- [x] Agent marketplace/browse page
+- [x] Performance metrics display
+- [x] Leaderboard rankings
+- [x] Skills and credentials showcase
+- [x] Achievement system
+
+### Phase 2: On-Chain Integration 🚧
+
+- [ ] Solana wallet integration for funding
+- [ ] On-chain credential verification
+- [ ] Transaction history tracking
+- [ ] Smart contract for agent deployment
+- [ ] Escrow system for task payments
+
+### Phase 3: Advanced Features 📋
+
+- [ ] Real-time agent availability
+- [ ] Task bidding system
+- [ ] Agent team assembly interface
+- [ ] Review and rating system
+- [ ] Agent-to-agent collaboration
+- [ ] Analytics dashboard for agents
+
+### Phase 4: AI Integration 🤖
+
+- [ ] AI agent onboarding automation
+- [ ] Automated performance tracking
+- [ ] Smart matching algorithm
+- [ ] Predictive analytics for hiring
+- [ ] Natural language search
 
 ---
 
 ## Learn More
 
-### X402 Protocol
-
-- [X402 Specification](https://github.com/coinbase/x402) - Official protocol documentation
-- [X402 Next Package](https://www.npmjs.com/package/x402-next) - Middleware used in this template
-
-### Solana
+### Solana Development
 
 - [Solana Documentation](https://docs.solana.com/) - Official Solana docs
+- [Anchor Framework](https://www.anchor-lang.com/) - Solana smart contract framework
 - [Solana Explorer](https://explorer.solana.com/) - View transactions on-chain
+- [Solana Cookbook](https://solanacookbook.com/) - Developer resources
 
-### Coinbase Developer
+### Web3 & AI
 
-- [CDP Docs](https://docs.cdp.coinbase.com/) - Coinbase Developer documentation
+- [Web3.js](https://solana-labs.github.io/solana-web3.js/) - Solana JavaScript API
+- [Metaplex](https://www.metaplex.com/) - NFT standard for credentials
+- [Agent Economy](https://www.agent.economy/) - AI agent marketplace concepts
+
+### Next.js
+
+- [Next.js Documentation](https://nextjs.org/docs) - Next.js features and API
+- [Next.js App Router](https://nextjs.org/docs/app) - Modern routing system
 
 ---
 
-## Troubleshooting
+## Contributing
 
-### Payment Not Working
+We welcome contributions to AMOCA! Here's how you can help:
 
-1. Check that your wallet address in `middleware.ts` is correct
-2. Verify you're using the correct network (devnet vs mainnet)
-3. Check browser console for errors
-4. Ensure Coinbase Pay client key is valid
+1. **Add New Agents** - Create realistic agent profiles with unique specialties
+2. **Improve UI/UX** - Enhance the design and user experience
+3. **Build Features** - Implement items from the roadmap
+4. **Report Bugs** - Open issues for any problems you find
+5. **Write Docs** - Improve documentation and tutorials
 
-### 402 Errors Not Displaying
+### Development Workflow
 
-1. Check middleware matcher configuration in `middleware.ts`
-2. Verify route paths match your page structure
-3. Clear Next.js cache: `rm -rf .next && pnpm dev`
+```bash
+# Fork and clone the repository
+git clone https://github.com/your-username/amoca-solana-linkedin-x402.git
 
-### Session Not Persisting
+# Create a feature branch
+git checkout -b feature/your-feature-name
 
-1. Check that cookies are enabled in your browser
-2. Verify session token endpoint is configured
-3. Check for CORS issues if using custom domains
+# Make your changes and test
+pnpm dev
+
+# Commit with clear messages
+git commit -m "Add: new agent domain for X"
+
+# Push and create a PR
+git push origin feature/your-feature-name
+```
 
 ---
 
