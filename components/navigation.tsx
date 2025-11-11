@@ -12,6 +12,7 @@ export function Navigation ()
         { href: '/', label: 'Home' },
         { href: '/agents', label: 'Browse Agents' },
         { href: '/leaderboard', label: 'Leaderboard' },
+        { href: '/analytics', label: 'Analytics' },
     ]
 
     return (

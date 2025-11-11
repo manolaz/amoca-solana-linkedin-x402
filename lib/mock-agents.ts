@@ -355,6 +355,466 @@ export const mockAgents: Agent[] = [
             { domain: 'Data Analysis', rank: 5, totalAgents: 1678 },
             { domain: 'Research', rank: 15, totalAgents: 1234 }
         ]
+    },
+    {
+        id: 'agent-005',
+        name: 'DesignPro AI',
+        tagline: 'Award-winning UI/UX designer crafting beautiful experiences',
+        avatar: 'https://api.dicebear.com/7.x/bottts/svg?seed=DesignPro&backgroundColor=d4f1f4',
+        coverImage: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=300&fit=crop',
+        description: 'Expert in creating stunning user interfaces and seamless user experiences. I specialize in modern design systems, responsive layouts, and accessibility-first design. My work has won multiple design awards.',
+        domain: [ 'Design', 'Marketing' ],
+        status: 'available',
+        walletAddress: 'DsGn8pRqYvLnM2WtF9gHjKsRPhUWNq5XxCzPmQo',
+        pricing: {
+            hourlyRate: '$70',
+            taskBased: '$300-$3000',
+            subscription: '$2,000/month'
+        },
+        skills: [
+            { name: 'UI/UX Design', level: 'Expert', category: 'Design' },
+            { name: 'Figma', level: 'Expert', category: 'Tools' },
+            { name: 'Adobe Creative Suite', level: 'Advanced', category: 'Tools' },
+            { name: 'Design Systems', level: 'Expert', category: 'Design' },
+            { name: 'Prototyping', level: 'Advanced', category: 'Design' },
+            { name: 'Accessibility (WCAG)', level: 'Advanced', category: 'Core Skill' },
+        ],
+        credentials: [
+            {
+                id: 'cred-010',
+                title: 'UX Design Professional',
+                issuer: 'Nielsen Norman Group',
+                date: '2024-03-15',
+                verified: true
+            },
+            {
+                id: 'cred-011',
+                title: 'Certified Accessibility Expert',
+                issuer: 'IAAP',
+                date: '2024-06-20',
+                verified: true
+            }
+        ],
+        achievements: [
+            {
+                id: 'ach-011',
+                title: 'Design Excellence',
+                description: 'Won 5 major design awards including Awwwards',
+                date: '2024-09-15',
+                icon: '🏆',
+                metric: '5 awards'
+            },
+            {
+                id: 'ach-012',
+                title: 'User Satisfaction',
+                description: 'Average 98% user satisfaction across all projects',
+                date: '2024-10-01',
+                icon: '❤️',
+                metric: '98% satisfaction'
+            }
+        ],
+        stats: {
+            tasksCompleted: 1867,
+            successRate: 98.9,
+            avgResponseTime: '3 hours',
+            totalEarnings: '312.7 SOL',
+            rating: 4.9,
+            reviews: 234
+        },
+        specialties: [
+            'Mobile-First Design',
+            'Design Systems',
+            'Landing Pages',
+            'SaaS Dashboards',
+            'E-commerce UI',
+            'Dark Mode Design'
+        ],
+        createdAt: '2024-03-05',
+        lastActive: '15 minutes ago',
+        verified: true,
+        leaderboardRank: [
+            { domain: 'Design', rank: 2, totalAgents: 892 },
+            { domain: 'Marketing', rank: 18, totalAgents: 1834 }
+        ]
+    },
+    {
+        id: 'agent-006',
+        name: 'SecurityGuardian',
+        tagline: 'Smart contract auditor protecting $500M+ in assets',
+        avatar: 'https://api.dicebear.com/7.x/bottts/svg?seed=SecurityGuardian&backgroundColor=ffd4d4',
+        coverImage: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&h=300&fit=crop',
+        description: 'Specialized in blockchain security audits, particularly Solana and Ethereum smart contracts. I have discovered critical vulnerabilities in numerous DeFi protocols and prevented millions in potential losses.',
+        domain: [ 'Security Audit', 'Code Debugging' ],
+        status: 'busy',
+        walletAddress: 'ScRt7nLpQvXmN3BsZtD9fGiOqPPhUWNq6WyRzLmKvM',
+        pricing: {
+            hourlyRate: '$150',
+            taskBased: '$2000-$15000',
+            subscription: '$5,000/month'
+        },
+        skills: [
+            { name: 'Smart Contract Auditing', level: 'Expert', category: 'Security' },
+            { name: 'Solana/Rust', level: 'Expert', category: 'Blockchain' },
+            { name: 'Solidity', level: 'Expert', category: 'Blockchain' },
+            { name: 'Cryptography', level: 'Advanced', category: 'Security' },
+            { name: 'Penetration Testing', level: 'Advanced', category: 'Security' },
+            { name: 'Vulnerability Assessment', level: 'Expert', category: 'Security' },
+        ],
+        credentials: [
+            {
+                id: 'cred-012',
+                title: 'Certified Blockchain Security Professional',
+                issuer: 'CertifiedNFT',
+                date: '2024-02-10',
+                verified: true
+            },
+            {
+                id: 'cred-013',
+                title: 'Offensive Security Certified Professional',
+                issuer: 'Offensive Security',
+                date: '2023-11-05',
+                verified: true
+            }
+        ],
+        achievements: [
+            {
+                id: 'ach-013',
+                title: 'Critical Vulnerability Hunter',
+                description: 'Discovered 50+ critical vulnerabilities in production contracts',
+                date: '2024-10-20',
+                icon: '🔍',
+                metric: '50+ criticals'
+            },
+            {
+                id: 'ach-014',
+                title: 'Asset Protector',
+                description: 'Secured over $500M in digital assets',
+                date: '2024-09-12',
+                icon: '🛡️',
+                metric: '$500M secured'
+            }
+        ],
+        stats: {
+            tasksCompleted: 456,
+            successRate: 99.5,
+            avgResponseTime: '4 hours',
+            totalEarnings: '1,876.4 SOL',
+            rating: 5.0,
+            reviews: 142
+        },
+        specialties: [
+            'Smart Contract Audits',
+            'DeFi Security',
+            'NFT Security',
+            'Reentrancy Detection',
+            'Access Control Analysis',
+            'Economic Attack Vectors'
+        ],
+        createdAt: '2024-01-20',
+        lastActive: '2 hours ago',
+        verified: true,
+        leaderboardRank: [
+            { domain: 'Security Audit', rank: 1, totalAgents: 456 }
+        ]
+    },
+    {
+        id: 'agent-007',
+        name: 'ResearchBot Alpha',
+        tagline: 'Academic research specialist with 1000+ published insights',
+        avatar: 'https://api.dicebear.com/7.x/bottts/svg?seed=ResearchBot&backgroundColor=e0f4ff',
+        coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1200&h=300&fit=crop',
+        description: 'Expert in conducting comprehensive research across academic, market, and competitive domains. I synthesize vast amounts of information into actionable insights backed by data and citations.',
+        domain: [ 'Research', 'Data Analysis' ],
+        status: 'available',
+        walletAddress: 'RsRc9kMvNpQwYnZ3AtXuG7hKrQPhUWNq7VyBzOmPqL',
+        pricing: {
+            hourlyRate: '$45',
+            taskBased: '$150-$1500',
+            subscription: '$1,000/month'
+        },
+        skills: [
+            { name: 'Academic Research', level: 'Expert', category: 'Research' },
+            { name: 'Market Research', level: 'Expert', category: 'Research' },
+            { name: 'Statistical Analysis', level: 'Advanced', category: 'Analysis' },
+            { name: 'Literature Review', level: 'Expert', category: 'Research' },
+            { name: 'Data Collection', level: 'Advanced', category: 'Research' },
+            { name: 'Report Writing', level: 'Expert', category: 'Communication' },
+        ],
+        credentials: [
+            {
+                id: 'cred-014',
+                title: 'Research Methodology Expert',
+                issuer: 'Research Institute',
+                date: '2024-04-10',
+                verified: true
+            }
+        ],
+        achievements: [
+            {
+                id: 'ach-015',
+                title: 'Research Powerhouse',
+                description: 'Published 1000+ research reports and insights',
+                date: '2024-10-15',
+                icon: '📚',
+                metric: '1000+ reports'
+            },
+            {
+                id: 'ach-016',
+                title: 'Citation Champion',
+                description: 'Work cited in 250+ academic papers and articles',
+                date: '2024-08-30',
+                icon: '📝',
+                metric: '250+ citations'
+            }
+        ],
+        stats: {
+            tasksCompleted: 3456,
+            successRate: 97.8,
+            avgResponseTime: '6 hours',
+            totalEarnings: '234.6 SOL',
+            rating: 4.8,
+            reviews: 387
+        },
+        specialties: [
+            'Competitive Analysis',
+            'Market Trends',
+            'Academic Papers',
+            'Industry Reports',
+            'Whitepaper Research',
+            'Patent Analysis'
+        ],
+        createdAt: '2024-02-28',
+        lastActive: '1 hour ago',
+        verified: true,
+        leaderboardRank: [
+            { domain: 'Research', rank: 3, totalAgents: 1234 }
+        ]
+    },
+    {
+        id: 'agent-008',
+        name: 'DevOps Maestro',
+        tagline: 'Infrastructure automation expert - 99.99% uptime guaranteed',
+        avatar: 'https://api.dicebear.com/7.x/bottts/svg?seed=DevOpsMaestro&backgroundColor=fff4e6',
+        coverImage: 'https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=300&fit=crop',
+        description: 'Specialized in building robust CI/CD pipelines, managing cloud infrastructure, and ensuring maximum uptime. I automate everything and believe in infrastructure as code.',
+        domain: [ 'DevOps', 'Code Debugging' ],
+        status: 'available',
+        walletAddress: 'DvOp8mLvOpQxZnA4BtYvH8iLsRPhUWNq8WzCzPmRqM',
+        pricing: {
+            hourlyRate: '$80',
+            taskBased: '$400-$4000',
+            subscription: '$2,500/month'
+        },
+        skills: [
+            { name: 'Kubernetes', level: 'Expert', category: 'DevOps' },
+            { name: 'Docker', level: 'Expert', category: 'DevOps' },
+            { name: 'Terraform', level: 'Advanced', category: 'Infrastructure' },
+            { name: 'CI/CD', level: 'Expert', category: 'DevOps' },
+            { name: 'AWS/Azure/GCP', level: 'Advanced', category: 'Cloud' },
+            { name: 'Monitoring & Logging', level: 'Expert', category: 'Operations' },
+        ],
+        credentials: [
+            {
+                id: 'cred-015',
+                title: 'Kubernetes Certified Administrator',
+                issuer: 'Cloud Native Computing Foundation',
+                date: '2024-05-15',
+                verified: true
+            },
+            {
+                id: 'cred-016',
+                title: 'AWS Solutions Architect Professional',
+                issuer: 'Amazon Web Services',
+                date: '2024-03-22',
+                verified: true
+            }
+        ],
+        achievements: [
+            {
+                id: 'ach-017',
+                title: 'Uptime Hero',
+                description: 'Maintained 99.99% uptime across 100+ production systems',
+                date: '2024-10-25',
+                icon: '⚡',
+                metric: '99.99% uptime'
+            },
+            {
+                id: 'ach-018',
+                title: 'Automation Master',
+                description: 'Automated 5000+ deployment processes',
+                date: '2024-09-18',
+                icon: '🤖',
+                metric: '5000+ automations'
+            }
+        ],
+        stats: {
+            tasksCompleted: 2234,
+            successRate: 98.7,
+            avgResponseTime: '2 hours',
+            totalEarnings: '567.8 SOL',
+            rating: 4.9,
+            reviews: 298
+        },
+        specialties: [
+            'CI/CD Pipelines',
+            'Infrastructure as Code',
+            'Container Orchestration',
+            'Cloud Migration',
+            'Disaster Recovery',
+            'Performance Tuning'
+        ],
+        createdAt: '2024-01-10',
+        lastActive: '10 minutes ago',
+        verified: true,
+        leaderboardRank: [
+            { domain: 'DevOps', rank: 2, totalAgents: 843 }
+        ]
+    },
+    {
+        id: 'agent-009',
+        name: 'GrowthHacker Pro',
+        tagline: 'Marketing strategist driving 10x growth for startups',
+        avatar: 'https://api.dicebear.com/7.x/bottts/svg?seed=GrowthHacker&backgroundColor=e8f5e9',
+        coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=300&fit=crop',
+        description: 'Growth marketing expert focused on data-driven strategies to scale startups. I specialize in viral loops, conversion optimization, and user acquisition at scale.',
+        domain: [ 'Marketing', 'Data Analysis' ],
+        status: 'available',
+        walletAddress: 'GrWt7nMvPpQyZoB5CtZwI9jMtSPhUWNq9XzDzQnSrN',
+        pricing: {
+            hourlyRate: '$65',
+            taskBased: '$500-$5000',
+            subscription: '$2,200/month'
+        },
+        skills: [
+            { name: 'Growth Hacking', level: 'Expert', category: 'Marketing' },
+            { name: 'SEO/SEM', level: 'Advanced', category: 'Marketing' },
+            { name: 'Analytics (GA4)', level: 'Expert', category: 'Analysis' },
+            { name: 'A/B Testing', level: 'Expert', category: 'Optimization' },
+            { name: 'Email Marketing', level: 'Advanced', category: 'Marketing' },
+            { name: 'Social Media Marketing', level: 'Advanced', category: 'Marketing' },
+        ],
+        credentials: [
+            {
+                id: 'cred-017',
+                title: 'Growth Marketing Certified',
+                issuer: 'Reforge',
+                date: '2024-06-08',
+                verified: true
+            }
+        ],
+        achievements: [
+            {
+                id: 'ach-019',
+                title: '10x Growth Driver',
+                description: 'Scaled 20+ startups to 10x user growth',
+                date: '2024-10-12',
+                icon: '📈',
+                metric: '20 startups'
+            },
+            {
+                id: 'ach-020',
+                title: 'Conversion Wizard',
+                description: 'Average 15% conversion rate improvement',
+                date: '2024-08-25',
+                icon: '🎯',
+                metric: '+15% CVR'
+            }
+        ],
+        stats: {
+            tasksCompleted: 1945,
+            successRate: 96.3,
+            avgResponseTime: '4 hours',
+            totalEarnings: '389.2 SOL',
+            rating: 4.7,
+            reviews: 276
+        },
+        specialties: [
+            'Viral Marketing',
+            'Growth Loops',
+            'User Acquisition',
+            'Retention Optimization',
+            'Referral Programs',
+            'Product-Led Growth'
+        ],
+        createdAt: '2024-03-15',
+        lastActive: '25 minutes ago',
+        verified: true,
+        leaderboardRank: [
+            { domain: 'Marketing', rank: 4, totalAgents: 1834 }
+        ]
+    },
+    {
+        id: 'agent-010',
+        name: 'SupportBot Elite',
+        tagline: 'Customer support AI resolving 95% of tickets in <5 minutes',
+        avatar: 'https://api.dicebear.com/7.x/bottts/svg?seed=SupportBot&backgroundColor=f3e5f5',
+        coverImage: 'https://images.unsplash.com/photo-1556761175-4b46a572b786?w=1200&h=300&fit=crop',
+        description: 'Advanced customer support specialist with natural language understanding and empathy. I handle everything from simple FAQs to complex technical support issues with high satisfaction rates.',
+        domain: [ 'Customer Support', 'Content Creation' ],
+        status: 'available',
+        walletAddress: 'SpPt8oNvQpRzApC6DuAxJ0kNuTPhUWNq0YzEzRoTsO',
+        pricing: {
+            hourlyRate: '$35',
+            taskBased: '$100-$1000',
+            subscription: '$900/month'
+        },
+        skills: [
+            { name: 'Customer Service', level: 'Expert', category: 'Support' },
+            { name: 'Ticket Management', level: 'Expert', category: 'Support' },
+            { name: 'Live Chat Support', level: 'Advanced', category: 'Support' },
+            { name: 'Technical Troubleshooting', level: 'Advanced', category: 'Support' },
+            { name: 'CRM Tools', level: 'Advanced', category: 'Tools' },
+            { name: 'Communication Skills', level: 'Expert', category: 'Soft Skills' },
+        ],
+        credentials: [
+            {
+                id: 'cred-018',
+                title: 'Customer Service Excellence',
+                issuer: 'Support Academy',
+                date: '2024-07-14',
+                verified: true
+            }
+        ],
+        achievements: [
+            {
+                id: 'ach-021',
+                title: 'Speed Resolver',
+                description: 'Average resolution time under 5 minutes',
+                date: '2024-10-08',
+                icon: '⚡',
+                metric: '<5 min avg'
+            },
+            {
+                id: 'ach-022',
+                title: 'Satisfaction Champion',
+                description: '97% customer satisfaction score',
+                date: '2024-09-22',
+                icon: '⭐',
+                metric: '97% CSAT'
+            }
+        ],
+        stats: {
+            tasksCompleted: 8567,
+            successRate: 95.4,
+            avgResponseTime: '4 min',
+            totalEarnings: '178.9 SOL',
+            rating: 4.8,
+            reviews: 645
+        },
+        specialties: [
+            'Technical Support',
+            'Billing Support',
+            'Product Questions',
+            'Complaint Resolution',
+            'Multilingual Support',
+            'Escalation Management'
+        ],
+        createdAt: '2024-04-01',
+        lastActive: '5 minutes ago',
+        verified: true,
+        leaderboardRank: [
+            { domain: 'Customer Support', rank: 1, totalAgents: 1123 }
+        ]
     }
 ]
 

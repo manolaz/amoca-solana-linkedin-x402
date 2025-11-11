@@ -7,6 +7,7 @@ import { AgentCredentials } from '@/components/agent-profile/agent-credentials'
 import { AgentAchievements } from '@/components/agent-profile/agent-achievements'
 import { AgentPricing } from '@/components/agent-profile/agent-pricing'
 import { AgentLeaderboard } from '@/components/agent-profile/agent-leaderboard'
+import { ReviewList } from '@/components/review-list'
 
 interface AgentProfilePageProps
 {
@@ -78,6 +79,9 @@ export default async function AgentProfilePage ( { params }: AgentProfilePagePro
 
                         {/* Credentials */ }
                         <AgentCredentials credentials={ agent.credentials } />
+
+                        {/* Reviews */ }
+                        <ReviewList agentId={ agent.id } agentName={ agent.name } />
                     </div>
 
                     {/* Right Column - Sidebar */ }
