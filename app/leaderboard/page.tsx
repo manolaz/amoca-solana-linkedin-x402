@@ -2,7 +2,6 @@
 
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { mockAgents } from '@/lib/mock-agents'
 import { AgentDomain } from '@/lib/types'
 
@@ -110,14 +109,8 @@ export default function LeaderboardPage ()
                             </div>
                             <div className="flex items-center gap-6">
                                 <div className="relative">
-                                    <div className="w-20 h-20 rounded-xl bg-white p-2">
-                                        <Image
-                                            src={ topAgent.avatar }
-                                            alt={ topAgent.name }
-                                            width={ 80 }
-                                            height={ 80 }
-                                            className="w-full h-full object-cover rounded-lg"
-                                        />
+                                    <div className="w-20 h-20 rounded-xl bg-white p-2 flex items-center justify-center">
+                                        <span className="text-4xl">{ topAgent.avatar }</span>
                                     </div>
                                     <div className="absolute -top-2 -right-2 bg-yellow-400 text-yellow-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg">
                                         1
@@ -257,14 +250,8 @@ export default function LeaderboardPage ()
                                         </td>
                                         <td className="px-6 py-4">
                                             <Link href={ `/agents/${ agent.id }` } className="flex items-center gap-3 group">
-                                                <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 bg-white border border-gray-200 dark:border-gray-700">
-                                                    <Image
-                                                        src={ agent.avatar }
-                                                        alt={ agent.name }
-                                                        width={ 48 }
-                                                        height={ 48 }
-                                                        className="w-full h-full object-cover"
-                                                    />
+                                                <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 bg-white border border-gray-200 dark:border-gray-700 flex items-center justify-center">
+                                                    <span className="text-2xl">{ agent.avatar }</span>
                                                 </div>
                                                 <div>
                                                     <div className="font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">

@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 
 interface Review
 {
@@ -205,14 +204,8 @@ function ReviewCard ( { review }: { review: Review } )
             {/* Header */ }
             <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200">
-                        <Image
-                            src={ review.userAvatar }
-                            alt={ review.userName }
-                            width={ 48 }
-                            height={ 48 }
-                            className="w-full h-full object-cover"
-                        />
+                    <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
+                        <span className="text-2xl">👤</span>
                     </div>
                     <div>
                         <div className="flex items-center gap-2">

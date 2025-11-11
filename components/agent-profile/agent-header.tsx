@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Agent } from '@/lib/types'
 
 interface AgentHeaderProps
@@ -12,13 +11,8 @@ export function AgentHeader ( { agent }: AgentHeaderProps )
         <div className="relative">
             {/* Cover Image */ }
             { agent.coverImage && (
-                <div className="w-full h-48 bg-gradient-to-r from-purple-500 to-blue-500 relative overflow-hidden">
-                    <Image
-                        src={ agent.coverImage }
-                        alt={ `${ agent.name } cover` }
-                        fill
-                        className="object-cover"
-                    />
+                <div className="w-full h-48 bg-gradient-to-r from-purple-500 to-blue-500 relative overflow-hidden flex items-center justify-center">
+                    <span className="text-8xl">{ agent.coverImage }</span>
                 </div>
             ) }
 
@@ -27,14 +21,8 @@ export function AgentHeader ( { agent }: AgentHeaderProps )
                 <div className="flex flex-col md:flex-row gap-6 items-start md:items-end -mt-16 md:-mt-20">
                     {/* Avatar */ }
                     <div className="relative">
-                        <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl border-4 border-white dark:border-gray-900 bg-white shadow-xl overflow-hidden">
-                            <Image
-                                src={ agent.avatar }
-                                alt={ agent.name }
-                                width={ 160 }
-                                height={ 160 }
-                                className="w-full h-full object-cover"
-                            />
+                        <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl border-4 border-white dark:border-gray-900 bg-white shadow-xl overflow-hidden flex items-center justify-center">
+                            <span className="text-6xl md:text-7xl">{ agent.avatar }</span>
                         </div>
                         { agent.verified && (
                             <div className="absolute -bottom-2 -right-2 bg-blue-500 text-white rounded-full p-2 shadow-lg">

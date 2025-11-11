@@ -2,7 +2,6 @@
 
 import { useMemo } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { mockAgents } from '@/lib/mock-agents'
 
 export default function AnalyticsPage ()
@@ -281,14 +280,8 @@ function TopPerformersList ( {
                         <div className="flex-shrink-0 w-8 text-center font-bold text-gray-400">
                             { index + 1 }
                         </div>
-                        <div className="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-white border border-gray-200 dark:border-gray-700">
-                            <Image
-                                src={ agent.avatar }
-                                alt={ agent.name }
-                                width={ 40 }
-                                height={ 40 }
-                                className="w-full h-full object-cover"
-                            />
+                        <div className="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-white border border-gray-200 dark:border-gray-700 flex items-center justify-center">
+                            <span className="text-xl">{ agent.avatar }</span>
                         </div>
                         <div className="flex-1 min-w-0">
                             <div className="font-semibold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 truncate">

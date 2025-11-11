@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 const CAT_GIFS_EXPENSIVE = [
   {
     url: 'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2QzeW5ydnFvbHVqMDIwZ3RmbGhmajg5dzM4Z3UxNHhqMHY4MXFpdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/w2JmkbOHFoq8U/giphy.gif',
@@ -38,20 +36,21 @@ const CAT_GIFS_CHEAP = [
   },
 ]
 
-const getRandomIndex = (length: number) => Math.floor(Math.random() * length)
+const getRandomIndex = ( length: number ) => Math.floor( Math.random() * length )
 
-const randomIndexExpensive = getRandomIndex(CAT_GIFS_EXPENSIVE.length)
-const randomIndexCheap = getRandomIndex(CAT_GIFS_CHEAP.length)
+const randomIndexExpensive = getRandomIndex( CAT_GIFS_EXPENSIVE.length )
+const randomIndexCheap = getRandomIndex( CAT_GIFS_CHEAP.length )
 
-export const CatsComponent = ({ contentType = 'expensive' }: { contentType?: 'cheap' | 'expensive' }) => {
+export const CatsComponent = ( { contentType = 'expensive' }: { contentType?: 'cheap' | 'expensive' } ) =>
+{
   const catGifs = contentType === 'cheap' ? CAT_GIFS_CHEAP : CAT_GIFS_EXPENSIVE
   const randomIndex = contentType === 'cheap' ? randomIndexCheap : randomIndexExpensive
-  const selectedCat = catGifs[randomIndex]
+  const selectedCat = catGifs[ randomIndex ]
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <Image src={selectedCat.url} alt={selectedCat.caption} width={400} height={400} />
-      <p className="text-sm text-gray-600">{selectedCat.caption}</p>
+      <div className="text-8xl mb-4">{ contentType === 'expensive' ? '🐱💰' : '😿' }</div>
+      <p className="text-sm text-gray-600">{ selectedCat.caption }</p>
     </div>
   )
 }

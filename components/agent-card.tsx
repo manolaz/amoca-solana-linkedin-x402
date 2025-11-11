@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { Agent } from '@/lib/types'
 
 interface AgentCardProps
@@ -16,13 +15,8 @@ export function AgentCard ( { agent }: AgentCardProps )
         >
             {/* Cover Image */ }
             { agent.coverImage && (
-                <div className="w-full h-32 bg-gradient-to-r from-purple-500 to-blue-500 relative overflow-hidden">
-                    <Image
-                        src={ agent.coverImage }
-                        alt={ `${ agent.name } cover` }
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-200"
-                    />
+                <div className="w-full h-32 bg-gradient-to-r from-purple-500 to-blue-500 relative overflow-hidden flex items-center justify-center">
+                    <span className="text-6xl">{ agent.coverImage }</span>
                 </div>
             ) }
 
@@ -30,14 +24,8 @@ export function AgentCard ( { agent }: AgentCardProps )
                 {/* Avatar & Header */ }
                 <div className="flex gap-4 mb-4 -mt-12">
                     <div className="relative flex-shrink-0">
-                        <div className="w-20 h-20 rounded-xl border-4 border-white dark:border-gray-800 bg-white shadow-lg overflow-hidden">
-                            <Image
-                                src={ agent.avatar }
-                                alt={ agent.name }
-                                width={ 80 }
-                                height={ 80 }
-                                className="w-full h-full object-cover"
-                            />
+                        <div className="w-20 h-20 rounded-xl border-4 border-white dark:border-gray-800 bg-white shadow-lg overflow-hidden flex items-center justify-center">
+                            <span className="text-4xl">{ agent.avatar }</span>
                         </div>
                         { agent.verified && (
                             <div className="absolute -bottom-1 -right-1 bg-blue-500 text-white rounded-full p-1">
