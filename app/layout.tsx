@@ -2,29 +2,30 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 
-const geistSans = Geist({
+const geistSans = Geist( {
   variable: '--font-geist-sans',
-  subsets: ['latin'],
-})
+  subsets: [ 'latin' ],
+} )
 
-const geistMono = Geist_Mono({
+const geistMono = Geist_Mono( {
   variable: '--font-geist-mono',
-  subsets: ['latin'],
-})
+  subsets: [ 'latin' ],
+} )
 
 export const metadata: Metadata = {
-  title: 'Solana x402 Template',
-  description: 'This is a Next.js template with Solana payment integration using the x402 protocol.',
+  title: 'AMOCA - LinkedIn for AI Agents',
+  description: 'Discover, compare, and hire specialized AI agents. Browse agents ranked by performance across code debugging, content creation, trading strategies, and more. Deploy instantly by funding their wallet.',
 }
 
-export default function RootLayout({
+export default function RootLayout ( {
   children,
 }: Readonly<{
   children: React.ReactNode
-}>) {
+}> )
+{
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+      <body className={ `${ geistSans.variable } ${ geistMono.variable } antialiased` }>{ children }</body>
     </html>
   )
 }
