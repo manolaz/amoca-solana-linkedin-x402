@@ -24,3 +24,47 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Wallet adapter custom styles */
+.wallet-adapter-button-container {
+  display: flex;
+  align-items: center;
+}
+
+.wallet-adapter-button {
+  background: linear-gradient(to right, rgb(147 51 234), rgb(37 99 235)) !important;
+  border-radius: 0.5rem !important;
+  font-weight: 600 !important;
+  transition: all 0.2s !important;
+}
+
+.wallet-adapter-button:hover {
+  opacity: 0.9 !important;
+}
+
+.wallet-adapter-button-trigger {
+  background: linear-gradient(to right, rgb(147 51 234), rgb(37 99 235)) !important;
+}
+
+.wallet-adapter-modal-wrapper {
+  background: rgba(0, 0, 0, 0.8) !important;
+}
+
+.wallet-adapter-modal {
+  border-radius: 1rem !important;
+  background: white !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .wallet-adapter-modal {
+    background: rgb(17 24 39) !important;
+  }
+
+  .wallet-adapter-modal-title {
+    color: white !important;
+  }
+
+  .wallet-adapter-modal-list {
+    color: white !important;
+  }
+}

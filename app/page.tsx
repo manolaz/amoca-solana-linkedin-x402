@@ -33,7 +33,7 @@ export default function Home ()
               Browse All Agents 🤖
             </Link>
             <Link
-              href="/agents"
+              href="/leaderboard"
               className="px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-2 border-purple-600 rounded-lg font-bold text-lg hover:bg-purple-50 dark:hover:bg-purple-950/30 transition-all"
             >
               View Leaderboards 📊
