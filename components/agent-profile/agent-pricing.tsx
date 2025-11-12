@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { useWallet, useConnection } from '@solana/wallet-adapter-react'
-import { PublicKey, SystemProgram, Transaction, LAMPORTS_PER_SOL } from '@solana/web3.js'
+import { useWallet } from '@solana/wallet-adapter-react'
 import { Agent } from '@/lib/types'
+import { useFaremeterFetch } from '../wallet-provider'
 
 interface AgentPricingProps
 {
@@ -14,12 +14,12 @@ interface AgentPricingProps
 
 export function AgentPricing ( { pricing, walletAddress, agentName }: AgentPricingProps )
 {
-    const { publicKey, sendTransaction } = useWallet()
-    const { connection } = useConnection()
+    const { publicKey } = useWallet()
+    const { fetchWithPayer } = useFaremeterFetch();
     const [ isLoading, setIsLoading ] = useState( false )
     const [ fundAmount, setFundAmount ] = useState( '0.1' )
 
-    const handleFundAgent = async () =>
+    const handleHireAgent = async () =>
     {
         if ( !publicKey )
         {
@@ -31,26 +31,29 @@ export function AgentPricing ( { pricing, walletAddress, agentName }: AgentPrici
         {
             setIsLoading( true )
 
-            const agentPublicKey = new PublicKey( walletAddress )
-            const lamports = parseFloat( fundAmount ) * LAMPORTS_PER_SOL
+            // This is a placeholder URL. In a real application, this would be your API endpoint.
+            const response = await fetchWithPayer( "https://helius.api.corbits.dev", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify( {
+                    jsonrpc: "2.0",
+                    id: 1,
+                    method: "getBlockHeight",
+                } ),
+            } );
 
-            const transaction = new Transaction().add(
-                SystemProgram.transfer( {
-                    fromPubkey: publicKey,
-                    toPubkey: agentPublicKey,
-                    lamports,
-                } )
-            )
+            if ( !response.ok )
+            {
+                throw new Error( `HTTP error! status: ${ response.status }` );
+            }
 
-            const signature = await sendTransaction( transaction, connection )
+            const data = await response.json();
 
-            await connection.confirmTransaction( signature, 'confirmed' )
-
-            alert( `Successfully funded ${ agentName } with ${ fundAmount } SOL!\nTransaction: ${ signature }` )
+            alert( `Successfully hired ${ agentName }!\nResponse: ${ JSON.stringify( data ) }` )
         } catch ( error )
         {
-            console.error( 'Error funding agent:', error )
-            alert( 'Failed to fund agent. Please try again.' )
+            console.error( 'Error hiring agent:', error )
+            alert( 'Failed to hire agent. Please try again.' )
         } finally
         {
             setIsLoading( false )
@@ -90,7 +93,7 @@ export function AgentPricing ( { pricing, walletAddress, agentName }: AgentPrici
             {/* Fund Amount Input */ }
             <div className="mb-4">
                 <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                    Fund Amount (SOL)
+                    Amount (USDC)
                 </label>
                 <input
                     type="number"
@@ -105,11 +108,11 @@ export function AgentPricing ( { pricing, walletAddress, agentName }: AgentPrici
 
             <div className="space-y-3">
                 <button
-                    onClick={ handleFundAgent }
+                    onClick={ handleHireAgent }
                     disabled={ isLoading || !publicKey }
                     className="w-full py-3 px-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
-                    { isLoading ? 'Processing...' : publicKey ? 'Fund Wallet & Deploy' : 'Connect Wallet to Fund' }
+                    { isLoading ? 'Processing...' : publicKey ? 'Hire Agent' : 'Connect Wallet to Hire' }
                 </button>
 
                 <button className="w-full py-3 px-4 border-2 border-purple-600 text-purple-600 dark:text-purple-400 font-semibold rounded-lg hover:bg-purple-50 dark:hover:bg-purple-950/30 transition-colors">
@@ -141,38 +144,9 @@ export function AgentPricing ( { pricing, walletAddress, agentName }: AgentPrici
                     </button>
                 </div>
                 <p className="text-xs text-gray-500 dark:text-gray-500 mt-2">
-                    Fund this wallet to deploy { agentName } instantly
+                    This is the agent's wallet address.
                 </p>
             </div>
-
-            {/* Quick Actions */ }
-            { publicKey && (
-                <div className="mt-6 pt-6 border-t border-purple-200 dark:border-purple-800">
-                    <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase mb-3">
-                        Quick Fund
-                    </p>
-                    <div className="flex gap-2">
-                        <button
-                            onClick={ () => setFundAmount( '0.1' ) }
-                            className="flex-1 py-2 px-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-purple-300 dark:hover:border-purple-700 transition-colors"
-                        >
-                            0.1 SOL
-                        </button>
-                        <button
-                            onClick={ () => setFundAmount( '0.5' ) }
-                            className="flex-1 py-2 px-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-purple-300 dark:hover:border-purple-700 transition-colors"
-                        >
-                            0.5 SOL
-                        </button>
-                        <button
-                            onClick={ () => setFundAmount( '1.0' ) }
-                            className="flex-1 py-2 px-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-purple-300 dark:hover:border-purple-700 transition-colors"
-                        >
-                            1.0 SOL
-                        </button>
-                    </div>
-                </div>
-            ) }
         </div>
     )
 }
